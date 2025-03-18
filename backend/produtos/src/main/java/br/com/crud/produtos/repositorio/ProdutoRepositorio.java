@@ -1,5 +1,9 @@
 package br.com.crud.produtos.repositorio;
 
-public class ProdutoRepositorio {
-    
+import org.springframework.data.repository.CrudRepository;
+
+import br.com.crud.produtos.modelo.ProdutoModelo;
+
+public interface ProdutoRepositorio extends CrudRepository<ProdutoModelo, Long>{
+
 }
