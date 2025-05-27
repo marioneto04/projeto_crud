@@ -16,36 +16,34 @@ import br.com.crud.produtos.modelo.RespostaModelo;
 import br.com.crud.produtos.servico.ProdutoServico;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins="*")
 public class ProdutoControle {
 
     @Autowired
     private ProdutoServico ps;
 
     @DeleteMapping("/remover/{codigo}")
-    public ResponseEntity<RespostaModelo> remover(@PathVariable long codigo) {
+    public ResponseEntity<RespostaModelo> remover(@PathVariable long codigo){
         return ps.remover(codigo);
-
     }
 
-    @PostMapping("/cadastrar")
-    public ResponseEntity<?> cadastrar(@RequestBody ProdutoModelo pm) {
+ @PostMapping("/cadastrar")
+    public ResponseEntity<?> cadastrar(@RequestBody ProdutoModelo pm){
         return ps.cadastrarAlterar(pm, "cadastrar");
     }
-
+    
     @PutMapping("/alterar")
-    public ResponseEntity<?> alterar(@RequestBody ProdutoModelo pm) {
+    public ResponseEntity<?> alterar(@RequestBody ProdutoModelo pm){
         return ps.cadastrarAlterar(pm, "alterar");
     }
 
     @GetMapping("/listar")
-    public Iterable<ProdutoModelo> listar() {
+    public Iterable<ProdutoModelo> listar(){
         return ps.listar();
     }
 
     @GetMapping("/")
-    public String rota() {
+    public String rota(){
         return "A API está funcionando!";
     }
-
 }
